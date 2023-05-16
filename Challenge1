@@ -1,0 +1,25 @@
+def squarenum():
+    num = int(input("Enter an integer(To finish enter 0): "))
+    if num == 0 or num >= 101 or num <= -101: #create a condittion at first chalenge
+        return []
+    else:
+        
+        restante = squarenum() # make a recursive call to request the next number
+        return [num] + restante # returns a list containing the entered number and the rest of the numbers 
+
+   
+def squaresum(lista):
+    if not lista: 
+        return 0
+    else:
+        num = lista[0]
+        if num > 0:
+            quadrado = num ** 2
+        else:
+            quadrado = 0
+        return quadrado + squaresum(lista[1:])
+
+# Exemplo de uso
+numbers = squarenum()
+result = squaresum(numbers)
+print(numbers, result)
